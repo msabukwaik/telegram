@@ -99,13 +99,12 @@
 		57F64DDA1F9AC44900B35315 /* telegram */ = {
 			isa = PBXGroup;
 			children = (
-				57F64DDB1F9AC44900B35315 /* AppDelegate.swift */,
-				57F64DDD1F9AC44900B35315 /* ViewController.swift */,
-				57F64DDF1F9AC44900B35315 /* Main.storyboard */,
-				57F64DE51F9AC44900B35315 /* Assets.xcassets */,
-				57F64DE71F9AC44900B35315 /* LaunchScreen.storyboard */,
-				57F64DEA1F9AC44900B35315 /* Info.plist */,
-				57F64DE21F9AC44900B35315 /* telegram.xcdatamodeld */,
+				57F64E101F9AC49500B35315 /* CoreData */,
+				57F64E0F1F9AC46E00B35315 /* General */,
+				57F64E0E1F9AC46600B35315 /* Controller */,
+				57F64E0D1F9AC46100B35315 /* View */,
+				57F64E0C1F9AC45500B35315 /* Model */,
+				57F64E121F9AC4B400B35315 /* Others */,
 			);
 			path = telegram;
 			sourceTree = "<group>";
@@ -126,6 +125,55 @@
 				57F64E001F9AC44900B35315 /* Info.plist */,
 			);
 			path = telegramUITests;
+			sourceTree = "<group>";
+		};
+		57F64E0C1F9AC45500B35315 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		57F64E0D1F9AC46100B35315 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				57F64DDF1F9AC44900B35315 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		57F64E0E1F9AC46600B35315 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				57F64DDD1F9AC44900B35315 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		57F64E0F1F9AC46E00B35315 /* General */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		57F64E101F9AC49500B35315 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				57F64DE21F9AC44900B35315 /* telegram.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		57F64E121F9AC4B400B35315 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				57F64DDB1F9AC44900B35315 /* AppDelegate.swift */,
+				57F64DE51F9AC44900B35315 /* Assets.xcassets */,
+				57F64DE71F9AC44900B35315 /* LaunchScreen.storyboard */,
+				57F64DEA1F9AC44900B35315 /* Info.plist */,
+			);
+			name = Others;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
