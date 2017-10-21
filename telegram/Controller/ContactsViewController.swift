@@ -13,12 +13,14 @@ class ContactsViewController: UIViewController {
     @IBOutlet weak var userProfileImg: UIImageView!
     @IBOutlet weak var contactsTableView:UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var contactTableViewHeightConstraint: NSLayoutConstraint!
     
-    let contacts = ContactInfo.seed(withLength: 20)
+    var contacts = ContactInfo.seed(withLength: 10)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         contactsTableView.isScrollEnabled = false
+        
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -42,13 +44,20 @@ class ContactsViewController: UIViewController {
         self.tabBarController?.navigationItem.leftBarButtonItem = nil
         self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .add, target: self, action: #selector(plusButton))
         self.tabBarController?.navigationItem.titleView = nil
-       
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        contactTableViewHeightConstraint.constant =  ceil(contactsTableView.contentSize.height)
+        self.contactsTableView.layoutIfNeeded()
     }
     
     override func viewDidLayoutSubviews() {
         userProfileImg.layer.cornerRadius = userProfileImg.frame.size.width / 2
         userProfileImg.layer.masksToBounds = true
+        
+        contactTableViewHeightConstraint.constant =  ceil(contactsTableView.contentSize.height)
+        self.contactsTableView.layoutIfNeeded()
     }
     
     override func didReceiveMemoryWarning() {
@@ -57,7 +66,11 @@ class ContactsViewController: UIViewController {
     
     @objc
     func plusButton()  {
-        
+        //TO-DO remve the following two lines
+        contacts.append(contentsOf: ContactInfo.seed(withLength: 10))
+        self.contactsTableView.reloadData()
+        contactTableViewHeightConstraint.constant =  ceil(contactsTableView.contentSize.height)
+        self.contactsTableView.layoutIfNeeded()
     }
 }
 
@@ -89,6 +102,8 @@ extension ContactsViewController:UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
+    
+    
 }
 
 struct ContactInfo{
