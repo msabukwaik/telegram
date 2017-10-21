@@ -16,6 +16,10 @@
 		57F64DE91F9AC44900B35315 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57F64DE71F9AC44900B35315 /* LaunchScreen.storyboard */; };
 		57F64DF41F9AC44900B35315 /* telegramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F64DF31F9AC44900B35315 /* telegramTests.swift */; };
 		57F64DFF1F9AC44900B35315 /* telegramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F64DFE1F9AC44900B35315 /* telegramUITests.swift */; };
+		57F64E141F9ACE1E00B35315 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F64E131F9ACE1E00B35315 /* ContactsViewController.swift */; };
+		57F64E161F9ACE2D00B35315 /* CallsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F64E151F9ACE2D00B35315 /* CallsViewController.swift */; };
+		57F64E181F9ACE4000B35315 /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F64E171F9ACE4000B35315 /* ChatsViewController.swift */; };
+		57F64E1A1F9ACE4F00B35315 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F64E191F9ACE4F00B35315 /* SettingsViewController.swift */; };
 		B9E7FA920455ADE8FBC581DA /* Pods_telegram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F43D8AFE048FBB07C23C55 /* Pods_telegram.framework */; };
 		CB0155C73C56EE62CD3D24FD /* Pods_telegramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E54EE69CED3CD63D0A614D6 /* Pods_telegramUITests.framework */; };
 /* End PBXBuildFile section */
@@ -58,6 +62,10 @@
 		57F64DFA1F9AC44900B35315 /* telegramUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = telegramUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F64DFE1F9AC44900B35315 /* telegramUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = telegramUITests.swift; sourceTree = "<group>"; };
 		57F64E001F9AC44900B35315 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57F64E131F9ACE1E00B35315 /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		57F64E151F9ACE2D00B35315 /* CallsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallsViewController.swift; sourceTree = "<group>"; };
+		57F64E171F9ACE4000B35315 /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
+		57F64E191F9ACE4F00B35315 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		6B9C64D496C90B218EF85D3E /* Pods-telegramUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-telegramUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-telegramUITests/Pods-telegramUITests.release.xcconfig"; sourceTree = "<group>"; };
 		90EEC01837ACEBFCA0C4DAFA /* Pods-telegramTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-telegramTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-telegramTests/Pods-telegramTests.release.xcconfig"; sourceTree = "<group>"; };
 		AAA45E55C45DE1492FDEAB87 /* Pods-telegram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-telegram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-telegram/Pods-telegram.debug.xcconfig"; sourceTree = "<group>"; };
@@ -173,6 +181,10 @@
 			isa = PBXGroup;
 			children = (
 				57F64DDD1F9AC44900B35315 /* ViewController.swift */,
+				57F64E131F9ACE1E00B35315 /* ContactsViewController.swift */,
+				57F64E151F9ACE2D00B35315 /* CallsViewController.swift */,
+				57F64E171F9ACE4000B35315 /* ChatsViewController.swift */,
+				57F64E191F9ACE4F00B35315 /* SettingsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -507,8 +519,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				57F64DE41F9AC44900B35315 /* telegram.xcdatamodeld in Sources */,
+				57F64E141F9ACE1E00B35315 /* ContactsViewController.swift in Sources */,
+				57F64E1A1F9ACE4F00B35315 /* SettingsViewController.swift in Sources */,
 				57F64DDE1F9AC44900B35315 /* ViewController.swift in Sources */,
 				57F64DDC1F9AC44900B35315 /* AppDelegate.swift in Sources */,
+				57F64E181F9ACE4000B35315 /* ChatsViewController.swift in Sources */,
+				57F64E161F9ACE2D00B35315 /* CallsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
