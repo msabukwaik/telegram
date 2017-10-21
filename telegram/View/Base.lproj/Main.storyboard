@@ -1,24 +1,182 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Wrz-JI-pOu">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Contacts-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Contacts" id="BYZ-38-t0r" customClass="ViewController" customModule="telegram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Page 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axg-lX-Fuy">
+                                <rect key="frame" x="162.5" y="323" width="50.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="axg-lX-Fuy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BHQ-SK-Bh8"/>
+                            <constraint firstItem="axg-lX-Fuy" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Vdr-Jc-T9c"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Contacts" id="3cU-x6-7D0"/>
+                    <navigationItem key="navigationItem" title="Contacts" id="xuc-Qs-Lgw">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="qpi-wh-6cY">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="q5E-l4-fGM">
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Edit"/>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="compose" id="z3m-Ww-NlI"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1721" y="5"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="y0a-6w-3do">
+            <objects>
+                <viewController title="Settings" id="c12-P3-AXi" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1xr-bw-0gn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Page 4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TLb-15-sYM">
+                                <rect key="frame" x="161" y="323" width="53.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="TLb-15-sYM" firstAttribute="centerX" secondItem="1xr-bw-0gn" secondAttribute="centerX" id="F1O-f1-SyK"/>
+                            <constraint firstItem="TLb-15-sYM" firstAttribute="centerY" secondItem="1xr-bw-0gn" secondAttribute="centerY" id="g8M-wz-h2t"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="uUy-be-Wfd"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" id="wh5-LM-IKt"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fq5-bS-c1J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-522" y="882"/>
+        </scene>
+        <!--Chats-->
+        <scene sceneID="cxl-yy-7rp">
+            <objects>
+                <viewController title="Chats" id="baQ-iW-B0S" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="H3k-gv-ux8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Page 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pf3-2b-vhI">
+                                <rect key="frame" x="161" y="323" width="53.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Pf3-2b-vhI" firstAttribute="centerY" secondItem="H3k-gv-ux8" secondAttribute="centerY" id="ATl-yS-yUn"/>
+                            <constraint firstItem="Pf3-2b-vhI" firstAttribute="centerX" secondItem="H3k-gv-ux8" secondAttribute="centerX" id="FAj-jb-DK8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kie-j8-S8r"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Chats" id="KRv-uX-Tcb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bMb-Cj-5Za" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="466" y="859"/>
+        </scene>
+        <!--Calls-->
+        <scene sceneID="KmJ-w5-Foe">
+            <objects>
+                <viewController title="Calls" id="pyL-zY-0Q3" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2hE-uG-xxd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Page 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hzE-f4-4mr">
+                                <rect key="frame" x="161" y="323" width="53" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hzE-f4-4mr" firstAttribute="centerY" secondItem="2hE-uG-xxd" secondAttribute="centerY" id="1xj-l6-dEr"/>
+                            <constraint firstItem="hzE-f4-4mr" firstAttribute="centerX" secondItem="2hE-uG-xxd" secondAttribute="centerX" id="ahE-HD-dN9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9Qy-f7-UZE"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Calls" id="71a-pu-nVY"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WNv-HM-rki" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1654" y="742"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="lfa-rG-OGL">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Wrz-JI-pOu" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="y1O-Fz-DoC">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="5Tj-dA-X9O" kind="relationship" relationship="rootViewController" id="tDX-21-t31"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HEw-sF-94o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-226" y="134"/>
+        </scene>
+        <!--Chats-->
+        <scene sceneID="20U-Z7-1IO">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="5Tj-dA-X9O" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Chats" id="Dla-eF-ahA">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="d63-tq-i4Q">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4d2-aT-UMA">
+                                <rect key="frame" x="16" y="7" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Edit"/>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="LIj-Rd-7A6"/>
+                    </navigationItem>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qFY-cL-6Bx">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="vd5-Cm-6hf"/>
+                        <segue destination="pyL-zY-0Q3" kind="relationship" relationship="viewControllers" id="Ast-PG-GXf"/>
+                        <segue destination="baQ-iW-B0S" kind="relationship" relationship="viewControllers" id="9p6-oL-H3e"/>
+                        <segue destination="c12-P3-AXi" kind="relationship" relationship="viewControllers" id="jdO-Fn-zpy"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x82-SU-5ta" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="522" y="134"/>
         </scene>
     </scenes>
 </document>
