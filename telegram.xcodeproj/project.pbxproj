@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		03A0051E1838315B40DC8A3B /* Pods_telegramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E7517BDFDC292653816611B /* Pods_telegramTests.framework */; };
 		57F64DDC1F9AC44900B35315 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F64DDB1F9AC44900B35315 /* AppDelegate.swift */; };
-		57F64DDE1F9AC44900B35315 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F64DDD1F9AC44900B35315 /* ViewController.swift */; };
 		57F64DE11F9AC44900B35315 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57F64DDF1F9AC44900B35315 /* Main.storyboard */; };
 		57F64DE41F9AC44900B35315 /* telegram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 57F64DE21F9AC44900B35315 /* telegram.xcdatamodeld */; };
 		57F64DE61F9AC44900B35315 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57F64DE51F9AC44900B35315 /* Assets.xcassets */; };
@@ -50,7 +49,6 @@
 		53B70B2FC266DD169C6DE1D8 /* Pods-telegramTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-telegramTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-telegramTests/Pods-telegramTests.debug.xcconfig"; sourceTree = "<group>"; };
 		57F64DD81F9AC44900B35315 /* telegram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = telegram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F64DDB1F9AC44900B35315 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		57F64DDD1F9AC44900B35315 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		57F64DE01F9AC44900B35315 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		57F64DE31F9AC44900B35315 /* telegram.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = telegram.xcdatamodel; sourceTree = "<group>"; };
 		57F64DE51F9AC44900B35315 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -180,7 +178,6 @@
 		57F64E0E1F9AC46600B35315 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				57F64DDD1F9AC44900B35315 /* ViewController.swift */,
 				57F64E131F9ACE1E00B35315 /* ContactsViewController.swift */,
 				57F64E151F9ACE2D00B35315 /* CallsViewController.swift */,
 				57F64E171F9ACE4000B35315 /* ChatsViewController.swift */,
@@ -521,7 +518,6 @@
 				57F64DE41F9AC44900B35315 /* telegram.xcdatamodeld in Sources */,
 				57F64E141F9ACE1E00B35315 /* ContactsViewController.swift in Sources */,
 				57F64E1A1F9ACE4F00B35315 /* SettingsViewController.swift in Sources */,
-				57F64DDE1F9AC44900B35315 /* ViewController.swift in Sources */,
 				57F64DDC1F9AC44900B35315 /* AppDelegate.swift in Sources */,
 				57F64E181F9ACE4000B35315 /* ChatsViewController.swift in Sources */,
 				57F64E161F9ACE2D00B35315 /* CallsViewController.swift in Sources */,
