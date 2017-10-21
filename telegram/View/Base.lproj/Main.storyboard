@@ -42,6 +42,7 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="Mohammed S A Kwaik" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YvV-7V-0Vd">
                                                 <rect key="frame" x="0.0" y="0.0" width="291" height="20.5"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -102,7 +103,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ContactsCell" id="q1b-Vi-M5o" userLabel="ContactsCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ContactsCell" id="q1b-Vi-M5o" userLabel="ContactsCell" customClass="ContactInfoCellTableViewCell" customModule="telegram" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="q1b-Vi-M5o" id="CVU-El-XU2">
@@ -146,6 +147,11 @@
                                                 <constraint firstAttribute="trailing" secondItem="8Ej-51-CRR" secondAttribute="trailing" id="d2X-uK-ItT"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="ContactName" destination="5Qc-Mt-wFf" id="nPS-Jg-fuR"/>
+                                            <outlet property="ContactStatus" destination="ECg-7c-huN" id="PSt-Si-gdi"/>
+                                            <outlet property="contactImage" destination="Fxx-BZ-KKI" id="bnS-CV-OKs"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -180,6 +186,7 @@
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="compose" id="z3m-Ww-NlI"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="contactsTableView" destination="TSE-5e-xKL" id="gpi-ab-ryt"/>
                         <outlet property="userProfileImg" destination="kPS-H7-TSC" id="0Wf-r4-o1O"/>
                     </connections>
                 </viewController>

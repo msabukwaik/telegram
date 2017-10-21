@@ -11,8 +11,27 @@ import UIKit
 class ContactsViewController: UIViewController {
 
     @IBOutlet weak var userProfileImg: UIImageView!
+    @IBOutlet weak var contactsTableView:UITableView!
+    
+    let contacts = ContactInfo.seed(withLength: 20)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView.init()
+        view.backgroundColor = UIColor.init(red: 242/255, green: 242/255, blue: 242/255, alpha: 1)
+        let label = UILabel.init()
+        label.textColor = UIColor.init(red: 137/255, green: 137/255, blue: 138/255, alpha: 1)
+        label.text = "CONTACTS"
+        label.frame = CGRect(x: 15, y: 0, width: 100, height: 30)
+        view.addSubview(label)
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -38,17 +57,6 @@ class ContactsViewController: UIViewController {
     func plusButton()  {
         
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension ContactsViewController:UITableViewDelegate{
@@ -61,19 +69,51 @@ extension ContactsViewController:UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return self.contacts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0{
             return tableView.dequeueReusableCell(withIdentifier: "InviteFriendsCell")!
         }else{
-            return tableView.dequeueReusableCell(withIdentifier: "ContactsCell")!
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ContactsCell") as! ContactInfoCellTableViewCell
+            cell.contactImage.image = contacts[indexPath.row - 1].image
+            cell.ContactName.text = "\(contacts[indexPath.row - 1].first_name ?? "") \(contacts[indexPath.row - 1].last_name ?? "")"
+            cell.ContactStatus.text = contacts[indexPath.row - 1].last_seen
+            return cell
         }
     }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "CONTACTS"
-    }
+}
 
+struct ContactInfo{
+    var image:UIImage?
+    var first_name:String?
+    var last_name:String?
+    var last_seen:String?
+    var status:ContactStatus?
+    
+    init(image:UIImage?, first_name:String?, last_name:String?, last_seen:String?, status:ContactStatus?) {
+        self.image = image
+        self.first_name = first_name
+        self.last_name = last_name
+        self.last_seen = last_seen
+        self.status = status
+    }
+    
+    static func seed() -> ContactInfo {
+        return ContactInfo.init(image: UIImage.init(named: "call"), first_name: "Sami", last_name: "Alhulwah", last_seen: "online", status: .online)
+    }
+    
+    static func seed(withLength:Int? = 10) -> [ContactInfo] {
+        
+        var list:[ContactInfo] = [ContactInfo]()
+        for _ in 0...withLength! {
+            list.append(ContactInfo.seed())
+        }
+        return list
+    }
+}
+
+enum ContactStatus:String {
+    case online = "online"
 }
