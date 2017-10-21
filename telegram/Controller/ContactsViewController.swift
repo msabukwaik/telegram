@@ -12,11 +12,13 @@ class ContactsViewController: UIViewController {
 
     @IBOutlet weak var userProfileImg: UIImageView!
     @IBOutlet weak var contactsTableView:UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     let contacts = ContactInfo.seed(withLength: 20)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        contactsTableView.isScrollEnabled = false
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -82,6 +84,10 @@ extension ContactsViewController:UITableViewDataSource{
             cell.ContactStatus.text = contacts[indexPath.row - 1].last_seen
             return cell
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
     }
 }
 
