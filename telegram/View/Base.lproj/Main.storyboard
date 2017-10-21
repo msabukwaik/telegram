@@ -31,7 +31,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Contacts" id="3cU-x6-7D0"/>
+                    <tabBarItem key="tabBarItem" title="Contacts" image="contacts" id="3cU-x6-7D0"/>
                     <navigationItem key="navigationItem" title="Contacts" id="xuc-Qs-Lgw">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="qpi-wh-6cY">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="q5E-l4-fGM">
@@ -68,7 +68,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uUy-be-Wfd"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" id="wh5-LM-IKt"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings" id="wh5-LM-IKt"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fq5-bS-c1J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -96,7 +96,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kie-j8-S8r"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Chats" id="KRv-uX-Tcb"/>
+                    <tabBarItem key="tabBarItem" title="Chats" image="chats" id="KRv-uX-Tcb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bMb-Cj-5Za" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -124,7 +124,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9Qy-f7-UZE"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Calls" id="71a-pu-nVY"/>
+                    <tabBarItem key="tabBarItem" title="Calls" image="call" id="71a-pu-nVY"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WNv-HM-rki" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -180,4 +180,10 @@
             <point key="canvasLocation" x="522" y="134"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="call" width="25" height="25"/>
+        <image name="chats" width="25" height="25"/>
+        <image name="contacts" width="25" height="25"/>
+        <image name="settings" width="25" height="25"/>
+    </resources>
 </document>

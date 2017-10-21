@@ -20,7 +20,7 @@ class CallsViewController: UIViewController {
         super.viewWillAppear(animated)
         self.tabBarController?.navigationItem.title = "Calls"
         self.tabBarController?.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "Edit", style: .plain, target: self, action: #selector(editButton))
-        self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .action, target: self, action: #selector(callButton))
+        self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage.init(named: "call"), style: .plain, target: self, action: #selector(callButton))
         let items = ["All", "Missed"]
         let customSC = UISegmentedControl(items: items)
         customSC.selectedSegmentIndex = 0
