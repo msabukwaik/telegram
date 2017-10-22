@@ -13,23 +13,11 @@ class ContactsViewController: UIViewController {
     @IBOutlet weak var userProfileImg: UIImageView!
     @IBOutlet weak var contactsTableView:UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var contactTableViewHeightConstraint: NSLayoutConstraint!
     
     var contacts = ContactInfo.seed(withLength: 10)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        contactsTableView.isScrollEnabled = false
-    }
-    
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if(keyPath == "contentSize"){
-            if let newvalue = change?[.newKey]
-            {
-                let newsize  = newvalue as! CGSize
-                contactTableViewHeightConstraint.constant = newsize.height
-            }
-        }
     }
     
 
@@ -39,8 +27,6 @@ class ContactsViewController: UIViewController {
         self.tabBarController?.navigationItem.leftBarButtonItem = nil
         self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .add, target: self, action: #selector(plusButton))
         self.tabBarController?.navigationItem.titleView = nil
-        
-        contactsTableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -49,7 +35,6 @@ class ContactsViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        contactsTableView.removeObserver(self, forKeyPath: "contentSize")
     }
     override func viewDidLayoutSubviews() {
         userProfileImg.layer.cornerRadius = userProfileImg.frame.size.width / 2
