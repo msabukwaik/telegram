@@ -23,6 +23,79 @@ class ContactsViewController: UIViewController {
         
     }
     
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.navigationItem.title = "Contacts"
+        self.tabBarController?.navigationItem.leftBarButtonItem = nil
+        self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .add, target: self, action: #selector(plusButton))
+        self.tabBarController?.navigationItem.titleView = nil
+        
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        contactTableViewHeightConstraint.constant =  ceil(contactsTableView.contentSize.height)
+        self.contactsTableView.layoutIfNeeded()
+        contactTableViewHeightConstraint.constant =  ceil(contactsTableView.contentSize.height)
+        self.contactsTableView.layoutIfNeeded()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        userProfileImg.layer.cornerRadius = userProfileImg.frame.size.width / 2
+        userProfileImg.layer.masksToBounds = true
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    @objc
+    func plusButton()  {
+        //TO-DO remve the following two lines
+        
+        contacts.append(contentsOf: ContactInfo.seed(withLength: 10))
+        self.contactsTableView.reloadData()
+        contactTableViewHeightConstraint.constant =  ceil(contactsTableView.contentSize.height)
+        self.contactsTableView.layoutIfNeeded()
+        contactTableViewHeightConstraint.constant =  ceil(contactsTableView.contentSize.height)
+        self.contactsTableView.layoutIfNeeded()
+    }
+}
+
+extension ContactsViewController:UITableViewDelegate{
+    
+}
+
+extension ContactsViewController:UITableViewDataSource{
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.contacts.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == 0{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "InviteFriendsCell")!
+            return cell
+        }else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ContactsCell") as! ContactInfoCellTableViewCell
+            cell.contactImage.image = contacts[indexPath.row - 1].image
+            cell.ContactName.text = "\(contacts[indexPath.row - 1].first_name ?? "") \(contacts[indexPath.row - 1].last_name ?? "")"
+            cell.ContactStatus.text = contacts[indexPath.row - 1].last_seen
+            return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView.init()
         view.backgroundColor = UIColor.init(red: 242/255, green: 242/255, blue: 242/255, alpha: 1)
@@ -36,71 +109,6 @@ class ContactsViewController: UIViewController {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.tabBarController?.navigationItem.title = "Contacts"
-        self.tabBarController?.navigationItem.leftBarButtonItem = nil
-        self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .add, target: self, action: #selector(plusButton))
-        self.tabBarController?.navigationItem.titleView = nil
-        
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        contactTableViewHeightConstraint.constant =  ceil(contactsTableView.contentSize.height)
-        self.contactsTableView.layoutIfNeeded()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        userProfileImg.layer.cornerRadius = userProfileImg.frame.size.width / 2
-        userProfileImg.layer.masksToBounds = true
-        
-        contactTableViewHeightConstraint.constant =  ceil(contactsTableView.contentSize.height)
-        self.contactsTableView.layoutIfNeeded()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    @objc
-    func plusButton()  {
-        //TO-DO remve the following two lines
-        contacts.append(contentsOf: ContactInfo.seed(withLength: 10))
-        self.contactsTableView.reloadData()
-        contactTableViewHeightConstraint.constant =  ceil(contactsTableView.contentSize.height)
-        self.contactsTableView.layoutIfNeeded()
-    }
-}
-
-extension ContactsViewController:UITableViewDelegate{
-    
-}
-
-extension ContactsViewController:UITableViewDataSource{
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.contacts.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0{
-            return tableView.dequeueReusableCell(withIdentifier: "InviteFriendsCell")!
-        }else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ContactsCell") as! ContactInfoCellTableViewCell
-            cell.contactImage.image = contacts[indexPath.row - 1].image
-            cell.ContactName.text = "\(contacts[indexPath.row - 1].first_name ?? "") \(contacts[indexPath.row - 1].last_name ?? "")"
-            cell.ContactStatus.text = contacts[indexPath.row - 1].last_seen
-            return cell
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
     }
     
     
