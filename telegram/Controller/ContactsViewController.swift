@@ -20,7 +20,16 @@ class ContactsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         contactsTableView.isScrollEnabled = false
-        
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if(keyPath == "contentSize"){
+            if let newvalue = change?[.newKey]
+            {
+                let newsize  = newvalue as! CGSize
+                contactTableViewHeightConstraint.constant = newsize.height
+            }
+        }
     }
     
 
@@ -31,18 +40,17 @@ class ContactsViewController: UIViewController {
         self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .add, target: self, action: #selector(plusButton))
         self.tabBarController?.navigationItem.titleView = nil
         
-        
+        contactsTableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        contactTableViewHeightConstraint.constant =  ceil(contactsTableView.contentSize.height)
-        self.contactsTableView.layoutIfNeeded()
-        contactTableViewHeightConstraint.constant =  ceil(contactsTableView.contentSize.height)
-        self.contactsTableView.layoutIfNeeded()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        contactsTableView.removeObserver(self, forKeyPath: "contentSize")
+    }
     override func viewDidLayoutSubviews() {
         userProfileImg.layer.cornerRadius = userProfileImg.frame.size.width / 2
         userProfileImg.layer.masksToBounds = true
@@ -55,13 +63,8 @@ class ContactsViewController: UIViewController {
     @objc
     func plusButton()  {
         //TO-DO remve the following two lines
-        
         contacts.append(contentsOf: ContactInfo.seed(withLength: 10))
         self.contactsTableView.reloadData()
-        contactTableViewHeightConstraint.constant =  ceil(contactsTableView.contentSize.height)
-        self.contactsTableView.layoutIfNeeded()
-        contactTableViewHeightConstraint.constant =  ceil(contactsTableView.contentSize.height)
-        self.contactsTableView.layoutIfNeeded()
     }
 }
 
