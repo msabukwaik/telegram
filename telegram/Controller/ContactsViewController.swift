@@ -37,8 +37,6 @@ class ContactsViewController: UIViewController {
         super.viewWillDisappear(animated)
     }
     override func viewDidLayoutSubviews() {
-        userProfileImg.layer.cornerRadius = userProfileImg.frame.size.width / 2
-        userProfileImg.layer.masksToBounds = true
     }
     
     override func didReceiveMemoryWarning() {
@@ -60,23 +58,39 @@ extension ContactsViewController:UITableViewDelegate{
 extension ContactsViewController:UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0{
+            return 2
+        }
         return self.contacts.count
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "InviteFriendsCell")!
-            return cell
+        if indexPath.section == 0{
+            if indexPath.row == 0{
+                let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell")!
+                return cell
+            }else{
+                let cell = tableView.dequeueReusableCell(withIdentifier: "MyInfoCell") as! MyContactInfoCellTableViewCell
+                cell.contactProfile.layer.cornerRadius = cell.contactProfile.frame.size.width/2
+                cell.contactProfile.clipsToBounds = true
+                return cell
+            }
         }else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ContactsCell") as! ContactInfoCellTableViewCell
-            cell.contactImage.image = contacts[indexPath.row - 1].image
-            cell.ContactName.text = "\(contacts[indexPath.row - 1].first_name ?? "") \(contacts[indexPath.row - 1].last_name ?? "")"
-            cell.ContactStatus.text = contacts[indexPath.row - 1].last_seen
-            return cell
+            if indexPath.row == 0{
+                let cell = tableView.dequeueReusableCell(withIdentifier: "InviteFriendsCell")!
+                return cell
+            }else{
+                let cell = tableView.dequeueReusableCell(withIdentifier: "ContactsCell") as! ContactInfoCellTableViewCell
+                cell.contactImage.image = contacts[indexPath.row - 1].image
+                cell.ContactName.text = "\(contacts[indexPath.row - 1].first_name ?? "") \(contacts[indexPath.row - 1].last_name ?? "")"
+                cell.ContactStatus.text = contacts[indexPath.row - 1].last_seen
+                return cell
+            }
         }
     }
     
@@ -85,18 +99,28 @@ extension ContactsViewController:UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = UIView.init()
-        view.backgroundColor = UIColor.init(red: 242/255, green: 242/255, blue: 242/255, alpha: 1)
-        let label = UILabel.init()
-        label.textColor = UIColor.init(red: 137/255, green: 137/255, blue: 138/255, alpha: 1)
-        label.text = "CONTACTS"
-        label.frame = CGRect(x: 15, y: 0, width: 100, height: 30)
-        view.addSubview(label)
-        return view
+        if section == 1{
+            let view = UIView.init()
+            view.backgroundColor = UIColor.init(red: 242/255, green: 242/255, blue: 242/255, alpha: 1)
+            let label = UILabel.init()
+            label.textColor = UIColor.init(red: 137/255, green: 137/255, blue: 138/255, alpha: 1)
+            label.text = "CONTACTS"
+            label.frame = CGRect(x: 15, y: 0, width: 100, height: 30)
+            view.addSubview(label)
+            return view
+        }else{
+            let view = UIView.init()
+            view.frame.size = CGSize(width: 0, height: 0)
+            return view
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 30
+        if section == 0{
+            return 0
+        }else{
+            return 30
+        }
     }
     
     
