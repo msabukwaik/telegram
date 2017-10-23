@@ -25,7 +25,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchCell" id="m0Y-II-cZP" userLabel="SearchCell">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchCell" id="m0Y-II-cZP" userLabel="SearchCell" customClass="SearchBarCellTableViewCell" customModule="telegram" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="m0Y-II-cZP" id="1jV-n0-lYZ">
@@ -48,6 +48,9 @@
                                                         <constraint firstItem="jdA-OR-LUC" firstAttribute="leading" secondItem="1jV-n0-lYZ" secondAttribute="leading" id="jCp-xL-YAo"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="searchBar" destination="jdA-OR-LUC" id="jOh-dH-Sen"/>
+                                                </connections>
                                             </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyInfoCell" id="2tT-NS-1gf" userLabel="MyInfoCell" customClass="MyContactInfoCellTableViewCell" customModule="telegram" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
@@ -57,20 +60,20 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G5q-rt-a0K">
-                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="110.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="rwK-On-IwJ">
-                                                                    <rect key="frame" x="20" y="10" width="355" height="90.5"/>
+                                                                    <rect key="frame" x="20" y="10" width="355" height="54.5"/>
                                                                     <subviews>
                                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="48" verticalCompressionResistancePriority="48" image="myprofile" translatesAutoresizingMaskIntoConstraints="NO" id="kPS-H7-TSC">
-                                                                            <rect key="frame" x="0.0" y="18" width="54" height="54.5"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="54" height="54.5"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="kPS-H7-TSC" secondAttribute="height" multiplier="1:1" id="Ewq-JX-nXZ"/>
                                                                                 <constraint firstAttribute="width" constant="54" id="nju-Wy-7kt"/>
                                                                             </constraints>
                                                                         </imageView>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="5zw-tK-K49">
-                                                                            <rect key="frame" x="69" y="25" width="286" height="41"/>
+                                                                            <rect key="frame" x="69" y="7" width="286" height="41"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="Mohammed S A Kwaik" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YvV-7V-0Vd">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="286" height="20.5"/>
@@ -88,9 +91,6 @@
                                                                             </subviews>
                                                                         </stackView>
                                                                     </subviews>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="90" id="gZN-9e-GO1"/>
-                                                                    </constraints>
                                                                 </stackView>
                                                             </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

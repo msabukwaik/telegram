@@ -10,11 +10,11 @@ import UIKit
 
 class ContactsViewController: UIViewController {
 
-    @IBOutlet weak var userProfileImg: UIImageView!
     @IBOutlet weak var contactsTableView:UITableView!
-    @IBOutlet weak var searchBar: UISearchBar!
+    var isSearchMode = false
     
     var contacts = ContactInfo.seed(withLength: 10)
+    var filteredContacts = [ContactInfo]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,34 +62,56 @@ extension ContactsViewController:UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0{
+        
+        //first section
+        if section == 0 && isSearchMode{
+            return 1
+        }else if section == 0{
             return 2
         }
-        return self.contacts.count
+        
+        //2nd section
+        if isSearchMode{
+            return filteredContacts.count
+        }else{
+            return self.contacts.count
+        }
+        
+        
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0{
             if indexPath.row == 0{
-                let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell")!
+                let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell") as! SearchBarCellTableViewCell
+                cell.searchBar.delegate = self
                 return cell
-            }else{
+            }else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "MyInfoCell") as! MyContactInfoCellTableViewCell
                 cell.contactProfile.layer.cornerRadius = cell.contactProfile.frame.size.width/2
                 cell.contactProfile.clipsToBounds = true
                 return cell
             }
         }else{
-            if indexPath.row == 0{
-                let cell = tableView.dequeueReusableCell(withIdentifier: "InviteFriendsCell")!
+            if isSearchMode{
+                let cell = tableView.dequeueReusableCell(withIdentifier: "ContactsCell") as! ContactInfoCellTableViewCell
+                cell.contactImage.image = filteredContacts[indexPath.row].image
+                cell.ContactName.text = "\(filteredContacts[indexPath.row].first_name ?? "") \(filteredContacts[indexPath.row].last_name ?? "")"
+                cell.ContactStatus.text = filteredContacts[indexPath.row].last_seen
                 return cell
             }else{
-                let cell = tableView.dequeueReusableCell(withIdentifier: "ContactsCell") as! ContactInfoCellTableViewCell
-                cell.contactImage.image = contacts[indexPath.row - 1].image
-                cell.ContactName.text = "\(contacts[indexPath.row - 1].first_name ?? "") \(contacts[indexPath.row - 1].last_name ?? "")"
-                cell.ContactStatus.text = contacts[indexPath.row - 1].last_seen
-                return cell
+            
+                if indexPath.row == 0{
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "InviteFriendsCell")!
+                    return cell
+                }else{
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "ContactsCell") as! ContactInfoCellTableViewCell
+                    cell.contactImage.image = contacts[indexPath.row - 1].image
+                    cell.ContactName.text = "\(contacts[indexPath.row - 1].first_name ?? "") \(contacts[indexPath.row - 1].last_name ?? "")"
+                    cell.ContactStatus.text = contacts[indexPath.row - 1].last_seen
+                    return cell
+                }
             }
         }
     }
@@ -124,6 +146,23 @@ extension ContactsViewController:UITableViewDataSource{
     }
     
     
+}
+
+extension ContactsViewController : UISearchBarDelegate{
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text == nil || searchBar.text == ""{
+            isSearchMode = false
+            contactsTableView.reloadData()
+        }else{
+            isSearchMode = true
+            for contact in contacts{
+                if contact.first_name == searchBar.text || contact.last_name == searchBar.text{
+                    filteredContacts.append(contact)
+                }
+            }
+            contactsTableView.reloadData()
+        }
+    }
 }
 
 struct ContactInfo{
